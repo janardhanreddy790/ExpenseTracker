@@ -1,6 +1,6 @@
 package com.personal.expensetracker.controller;
 
-import com.personal.expensetracker.model.Transaction;
+import com.personal.expensetracker.model.*;
 import com.personal.expensetracker.repository.TransactionRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,24 +33,37 @@ public class TransactionController {
     }
 
     @GetMapping("/summary/by-category")
-    public List<Object[]> sumByCategory() {
-        return repository.findSumByCategory();
+    public List<CategorySummary> sumByCategory() {
+        return repository.findSumByCategory()
+                .stream()
+                .map(r -> new CategorySummary((String) r[0], (Double) r[1]))
+                .toList();
     }
 
     @GetMapping("/summary/by-month")
-    public List<Object[]> sumByMonth() {
-        return repository.findSumByMonth();
+    public List<MonthSummary> sumByMonth() {
+        return repository.findSumByMonth()
+                .stream()
+                .map(r -> new MonthSummary((String) r[0], (Double) r[1]))
+                .toList();
     }
 
     @GetMapping("/summary/top-items")
-    public List<Object[]> topItems() {
-        return repository.findTopItems();
+    public List<ItemSummary> topItems() {
+        return repository.findTopItems()
+                .stream()
+                .map(r -> new ItemSummary((String) r[0], (Double) r[1]))
+                .toList();
     }
 
     @GetMapping("/summary/top-vendors")
-    public List<Object[]> topVendors() {
-        return repository.findTopVendors();
+    public List<VendorSummary> topVendors() {
+        return repository.findTopVendors()
+                .stream()
+                .map(r -> new VendorSummary((String) r[0], (Double) r[1]))
+                .toList();
     }
+
 
     @GetMapping("/search")
     public List<Transaction> search(
