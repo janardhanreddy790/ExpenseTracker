@@ -81,7 +81,7 @@ public class ReferenceDataController {
         itemsBySubcategory.put("Dairy", Arrays.asList("Milk", "Cheese", "Yogurt", "Butter", "Paneer", "Cream", "Buttermilk", "other"));
         itemsBySubcategory.put("Vegetables", Arrays.asList("Potato", "Tomato", "Onion", "Carrot", "Spinach", "Broccoli", "Cabbage",
                 "Capsicum", "GreenChilli", "Gongura", "BottleGuard", "BeetRoot", "kohl", "Capsicum", "Moringa/Drumstick Leaves",
-                "Drumsticks", "other"));
+                "Drumsticks", "GreenLeaves / Karivepaku", "Koriander", "Minz / Podina", "other"));
         itemsBySubcategory.put("Fruits", Arrays.asList("Apple", "Banana", "Orange", "Mango", "Grapes", "Berries", "Papaya",
                 "GartenApfel / Danimma ", "BlueBerries", "StrawBerries", "Birne", "Guava", "other"));
         itemsBySubcategory.put("Staples & Pulses", Arrays.asList("Rice","Idly Rice", "Dosa Rice", "Sona masoori rice","Maggi",
