@@ -87,7 +87,7 @@ public class ReferenceDataController {
         itemsBySubcategory.put("Staples & Pulses", Arrays.asList("Rice","Idly Rice", "Dosa Rice", "Sona masoori rice","Maggi",
                 "Wheat Flour", "Lentils", "Pasta", "Cooking Oil", "Sugar", "Salt", "Poha", "Semolina", "Upma Rava", "Instant Upma rava",
                 "Urad Daal", "Channa Daal", "Whole Jeera / Cumin Seeds", "Mustard Seeds", "Red Chillies", "Chilli Powder",
-                "Garam Masala", "Chicken Masala", "Mutton Masala", "Daniya Powder", "Panipuri Masala", "Biryani Masala", "other"));
+                "Garam Masala", "Chicken Masala", "Mutton Masala", "Daniya Powder", "Panipuri Masala", "Biryani Masala", "Hirse", "other"));
         itemsBySubcategory.put("Bakery", Arrays.asList("Bread", "Croissant", "Cake", "Muffin", "Buns", "Donuts", "LaugenEcke",
                 "Bretzel", "Vollkorn Sandwhich", "Sandwhich Bread", "Baguatte", "Spinat Roll", "Cheese Roll", "other"));
         itemsBySubcategory.put("Meat & Seafood", Arrays.asList("Chicken", "Mutton", "Fish", "Shrimp", "Pork", "Eggs", "other"));
