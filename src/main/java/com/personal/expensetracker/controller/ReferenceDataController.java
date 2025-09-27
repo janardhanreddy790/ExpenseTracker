@@ -86,7 +86,7 @@ public class ReferenceDataController {
                 "GartenApfel / Danimma ", "BlueBerries", "StrawBerries", "Birne", "Guava", "other"));
         itemsBySubcategory.put("Staples & Pulses", Arrays.asList("Rice","Idly Rice", "Dosa Rice", "Sona masoori rice","Maggi",
                 "Wheat Flour", "Lentils", "Pasta", "Cooking Oil", "Sugar", "Salt", "Poha", "Semolina", "Upma Rava", "Instant Upma rava",
-                "Urad Daal", "Channa Daal", "Whole Jeera / Cumin Seeds", "Mustard Seeds", "Red Chillies", "Chilli Powder",
+                "Urad Daal", "Channa Daal", "Toor Daal", "Whole Jeera / Cumin Seeds", "Mustard Seeds", "Red Chillies", "Chilli Powder",
                 "Garam Masala", "Chicken Masala", "Mutton Masala", "Daniya Powder", "Panipuri Masala", "Biryani Masala", "Hirse", "other"));
         itemsBySubcategory.put("Bakery", Arrays.asList("Bread", "Croissant", "Cake", "Muffin", "Buns", "Donuts", "LaugenEcke",
                 "Bretzel", "Vollkorn Sandwhich", "Sandwhich Bread", "Baguatte", "Spinat Roll", "Cheese Roll", "other"));
@@ -116,7 +116,7 @@ public class ReferenceDataController {
         itemsBySubcategory.put("Electronics & Gadgets", Arrays.asList("Mobile", "Laptop", "Tablet", "TV", "Headphones", "Smartwatch", "other"));
         itemsBySubcategory.put("Home Decor", Arrays.asList("Lamp", "Curtains", "Cushion", "Carpet", "other"));
         itemsBySubcategory.put("Beauty & Personal Care", Arrays.asList("Shampoo", "Soap", "Face Wash", "Toothpaste", "Deodorant",
-                "Cosmetics", "other"));
+                "Cosmetics", "Dusche gel", "other"));
         itemsBySubcategory.put("Sports & Fitness Equipment", Arrays.asList("Dumbbells", "Yoga Mat", "Cycle", "Treadmill", "other"));
         itemsBySubcategory.put("Toys & Kids Items", Arrays.asList("Teddy Bear", "Building Blocks", "Remote Car", "other"));
         itemsBySubcategory.put("Online Marketplaces", Arrays.asList("Amazon", "Flipkart", "Myntra", "Otto", "Zalando", "eBay", "other"));
