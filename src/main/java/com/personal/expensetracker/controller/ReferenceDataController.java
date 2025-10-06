@@ -81,9 +81,10 @@ public class ReferenceDataController {
         itemsBySubcategory.put("Dairy", Arrays.asList("Milk", "Cheese", "Yogurt", "Butter", "Paneer", "Cream", "Buttermilk", "other"));
         itemsBySubcategory.put("Vegetables", Arrays.asList("Potato", "Tomato", "Onion", "Carrot", "Spinach", "Broccoli", "Cabbage",
                 "Capsicum", "GreenChilli", "Gongura", "BottleGuard", "BeetRoot", "kohl", "Capsicum", "Moringa/Drumstick Leaves",
-                "Drumsticks", "GreenLeaves / Karivepaku", "Koriander", "Minz / Podina", "Methi", "Busch Bohnen", "Beans", "other"));
+                "Drumsticks", "GreenLeaves / Karivepaku", "Koriander", "Minz / Podina", "Methi", "Busch Bohnen", "Beans", "Zitronen/Lemon",
+                "Gurken/Cucumber","other"));
         itemsBySubcategory.put("Fruits", Arrays.asList("Apple", "Banana", "Orange", "Mango", "Grapes", "Berries", "Papaya",
-                "GartenApfel / Danimma ", "BlueBerries", "StrawBerries", "Birne", "Guava", "other"));
+                "GartenApfel / Danimma ", "BlueBerries", "StrawBerries", "Birne", "Guava", "Avacado", "other"));
         itemsBySubcategory.put("Staples & Pulses", Arrays.asList("Rice","Idly Rice", "Dosa Rice", "Sona masoori rice","Maggi",
                 "Wheat Flour", "Lentils", "Pasta", "Cooking Oil", "Sugar", "Salt", "Poha", "Semolina", "Upma Rava", "Instant Upma rava",
                 "Urad Daal", "Channa Daal", "Toor Daal", "Whole Jeera / Cumin Seeds", "Mustard Seeds", "Red Chillies", "Chilli Powder",
