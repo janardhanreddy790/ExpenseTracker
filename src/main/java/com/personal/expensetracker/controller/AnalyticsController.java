@@ -26,10 +26,10 @@ public class AnalyticsController {
         return transactionRepository.getSummaryByCategory();
     }
 
-//    @GetMapping("/months")   // ✅ re-enabled
-//    public List<MonthSummary> getByMonth() {
-//        return transactionRepository.getSummaryByMonth();
-//    }
+    @GetMapping("/months")
+    public List<MonthSummary> getByMonth() {
+        return transactionRepository.getSummaryByMonth();
+    }
 
     @GetMapping("/vendors")
     public List<VendorSummary> getTopVendors() {

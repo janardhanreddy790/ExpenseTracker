@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monthly Expense Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; background-color: #f7f9fc; color: #1f2933; }
+        h1 { font-size: 1.75rem; margin-bottom: 1rem; }
+        table { border-collapse: collapse; width: 100%; background-color: #ffffff; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12); }
+        th, td { padding: 0.75rem 1rem; text-align: left; }
+        th { background-color: #1f7aec; color: #ffffff; font-weight: 600; letter-spacing: 0.02em; }
+        tr:nth-child(even) { background-color: #f1f5f9; }
+        tr:hover { background-color: #e2e8f0; }
+        .total { font-weight: 600; color: #0f172a; }
+        .empty-state { padding: 2rem; text-align: center; background: #fff; border: 1px dashed #cbd5f5; border-radius: 0.75rem; }
+    </style>
+</head>
+<body>
+<h1>Monthly Expense Report</h1>
+<p>Review your spending trends month over month.</p>
+<div th:if="${summaries.empty}" class="empty-state">
+    <p>No transactions yet. Add expenses to see your monthly summaries.</p>
+</div>
+<table th:if="${!summaries.empty}">
+    <thead>
+    <tr>
+        <th>Month</th>
+        <th>Total Spent</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="summary : ${summaries}">
+        <td th:text="${summary.month}"></td>
+        <td class="total" th:text="${#numbers.formatDecimal(summary.total, 1, 'COMMA', 2, 'POINT')}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

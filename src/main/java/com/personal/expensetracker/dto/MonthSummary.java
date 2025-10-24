@@ -1,10 +1,10 @@
 package com.personal.expensetracker.dto;
 
 public class MonthSummary {
-    private String month;
-    private Double total;  // ✅ use Double
+    private final String month;
+    private final Double total;
 
-    public MonthSummary(String month, Double total) {  // ✅ match query
+    public MonthSummary(String month, Double total) {
         this.month = month;
         this.total = total;
     }
