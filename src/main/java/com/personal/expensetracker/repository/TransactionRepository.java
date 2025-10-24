@@ -53,12 +53,12 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
             "FROM Transaction t GROUP BY t.category")
     List<CategorySummary> getSummaryByCategory();
 
-//    @Query("SELECT new com.personal.expensetracker.dto.MonthSummary(" +
-//            "FUNCTION('TO_CHAR', t.date, 'YYYY-MM'), CAST(SUM(t.amount) AS big_decimal)) " +
-//            "FROM Transaction t " +
-//            "GROUP BY FUNCTION('TO_CHAR', t.date, 'YYYY-MM') " +
-//            "ORDER BY FUNCTION('TO_CHAR', t.date, 'YYYY-MM')")
-//    List<MonthSummary> getSummaryByMonth();
+    @Query("SELECT new com.personal.expensetracker.dto.MonthSummary(" +
+            "FUNCTION('TO_CHAR', t.date, 'YYYY-MM'), SUM(t.amount)) " +
+            "FROM Transaction t " +
+            "GROUP BY FUNCTION('TO_CHAR', t.date, 'YYYY-MM') " +
+            "ORDER BY MIN(t.date)")
+    List<MonthSummary> getSummaryByMonth();
 
 
 
