@@ -12,13 +12,18 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.closeTo;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-@WebMvcTest(controllers = AnalyticsController.class)
-class AnalyticsControllerTest {
+@WebMvcTest(controllers = MonthlyReportController.class)
+class MonthlyReportControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -27,7 +32,7 @@ class AnalyticsControllerTest {
     private MonthlyReportService monthlyReportService;
 
     @Test
-    void monthlyReportEndpointReturnsSummariesWithTotal() throws Exception {
+    void monthlyReportViewDisplaysSummariesAndTotal() throws Exception {
         MonthlyReportResponse response = new MonthlyReportResponse(
                 List.of(
                         new MonthSummary("2024-01", 150.0),
@@ -38,26 +43,19 @@ class AnalyticsControllerTest {
         BDDMockito.given(monthlyReportService.getMonthlyReport())
                 .willReturn(response);
 
-        mockMvc.perform(get("/api/analytics/reports/monthly"))
+        mockMvc.perform(get("/reports/monthly"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.summaries", hasSize(2)))
-                .andExpect(jsonPath("$.summaries[0].month").value("2024-01"))
-                .andExpect(jsonPath("$.summaries[1].total").value(200.5))
-                .andExpect(jsonPath("$.total").value(350.5));
-    }
-
-    @Test
-    void monthsEndpointReturnsSummaries() throws Exception {
-        BDDMockito.given(monthlyReportService.getMonthlySummaries())
-                .willReturn(List.of(
-                        new MonthSummary("2024-01", 150.0),
-                        new MonthSummary("2024-02", 200.5)
-                ));
-
-        mockMvc.perform(get("/api/analytics/months"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].month").value("2024-01"))
-                .andExpect(jsonPath("$[1].total").value(200.5));
+                .andExpect(view().name("reports/monthly"))
+                .andExpect(model().attribute("summaries", contains(
+                        allOf(
+                                hasProperty("month", is("2024-01")),
+                                hasProperty("total", is(150.0))
+                        ),
+                        allOf(
+                                hasProperty("month", is("2024-02")),
+                                hasProperty("total", is(200.5))
+                        )
+                )))
+                .andExpect(model().attribute("total", closeTo(350.5, 0.001)));
     }
 }

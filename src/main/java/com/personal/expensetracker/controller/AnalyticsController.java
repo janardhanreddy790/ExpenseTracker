@@ -6,21 +6,24 @@ import com.personal.expensetracker.dto.MonthSummary;
 import com.personal.expensetracker.dto.MonthlyReportResponse;
 import com.personal.expensetracker.dto.VendorSummary;
 import com.personal.expensetracker.repository.TransactionRepository;
+import com.personal.expensetracker.service.MonthlyReportService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/analytics")
 public class AnalyticsController {
 
     private final TransactionRepository transactionRepository;
+    private final MonthlyReportService monthlyReportService;
 
-    public AnalyticsController(TransactionRepository transactionRepository) {
+    public AnalyticsController(TransactionRepository transactionRepository,
+                               MonthlyReportService monthlyReportService) {
         this.transactionRepository = transactionRepository;
+        this.monthlyReportService = monthlyReportService;
     }
 
     @GetMapping("/categories")
@@ -30,18 +33,12 @@ public class AnalyticsController {
 
     @GetMapping("/months")
     public List<MonthSummary> getByMonth() {
-        return transactionRepository.getSummaryByMonth();
+        return monthlyReportService.getMonthlySummaries();
     }
 
     @GetMapping("/reports/monthly")
     public MonthlyReportResponse getMonthlyReport() {
-        List<MonthSummary> summaries = transactionRepository.getSummaryByMonth();
-        double total = summaries.stream()
-                .map(MonthSummary::getTotal)
-                .filter(Objects::nonNull)
-                .mapToDouble(Double::doubleValue)
-                .sum();
-        return new MonthlyReportResponse(summaries, total);
+        return monthlyReportService.getMonthlyReport();
     }
 
     @GetMapping("/vendors")
