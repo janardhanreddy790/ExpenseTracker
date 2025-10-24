@@ -47,4 +47,11 @@ class MonthlyReportServiceTest {
 
         assertThat(monthlyReportService.getMonthlySummaries()).isEqualTo(summaries);
     }
+
+    @Test
+    void getMonthlySummariesReturnsEmptyListWhenRepositoryReturnsNull() {
+        BDDMockito.given(transactionRepository.getSummaryByMonth()).willReturn(null);
+
+        assertThat(monthlyReportService.getMonthlySummaries()).isEmpty();
+    }
 }

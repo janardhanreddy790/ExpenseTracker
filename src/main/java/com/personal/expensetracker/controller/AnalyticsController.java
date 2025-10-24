@@ -33,8 +33,7 @@ public class AnalyticsController {
 
     @GetMapping("/months")
     public List<MonthSummary> getByMonth() {
-        List<MonthSummary> summaries = monthlyReportService.getMonthlySummaries();
-        return summaries != null ? summaries : transactionRepository.getSummaryByMonth();
+        return monthlyReportService.getMonthlySummaries();
     }
 
     @GetMapping("/reports/monthly")

@@ -57,7 +57,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
             "FUNCTION('TO_CHAR', t.date, 'YYYY-MM'), SUM(t.amount)) " +
             "FROM Transaction t " +
             "GROUP BY FUNCTION('TO_CHAR', t.date, 'YYYY-MM') " +
-            "ORDER BY MIN(t.date)")
+            "ORDER BY FUNCTION('TO_CHAR', t.date, 'YYYY-MM')")
     List<MonthSummary> getSummaryByMonth();
 
 

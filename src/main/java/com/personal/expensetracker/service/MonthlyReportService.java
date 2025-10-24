@@ -18,7 +18,8 @@ public class MonthlyReportService {
     }
 
     public List<MonthSummary> getMonthlySummaries() {
-        return transactionRepository.getSummaryByMonth();
+        List<MonthSummary> summaries = transactionRepository.getSummaryByMonth();
+        return summaries == null ? List.of() : List.copyOf(summaries);
     }
 
     public MonthlyReportResponse getMonthlyReport() {
